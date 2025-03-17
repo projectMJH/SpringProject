@@ -15,5 +15,5 @@ public class HelloMain {
 		String msg=hello.sayHello("ȫ�浿");
 		System.out.println(msg);
 	}
-
+ 
 }
