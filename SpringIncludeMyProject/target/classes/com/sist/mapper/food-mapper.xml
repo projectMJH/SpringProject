@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.sist.mapper.FoodMapper">
+ 	<select id="foodFindData" resultType="com.sist.vo.FoodVO" parameterType="hashmap">
+	 	SELECT fno,name,poster,num
+	 	FROM (SELECT fno,name,poster,rownum as num
+	 	FROM (SELECT fno,name,poster
+	 	FROM project_food 
+	 	WHERE name LIKE '%'||#{fd}||'%'
+	 	ORDER BY fno))
+	 	WHERE num BETWEEN #{start} AND #{end}
+ 	</select> 
+ 	<select id="foodFindTotalPage" resultType="int" parameterType="hashmap">
+ 		SELECT CEIL(COUNT(*)/12.0) FROM project_food WHERE name LIKE '%'||#{fd}||'%'
+ 	</select>
+ </mapper>
