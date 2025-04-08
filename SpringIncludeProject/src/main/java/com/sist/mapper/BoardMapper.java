@@ -24,8 +24,8 @@ public interface BoardMapper {
 			+ "FROM springReplyBoard "
 			+ "WHERE no=#{no}")
 	public BoardVO boardDetailData(int no);
-	@Update("UPDATE INTO springReplyBoard SET "
-			+ "hit=hit+1"
+	@Update("UPDATE springReplyBoard SET "
+			+ "hit=hit+1 "
 			+ "WHERE no=#{no}")
 	public void boardHitIncrement(int no);
 }

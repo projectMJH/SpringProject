@@ -15,7 +15,7 @@
       <th width=15%>이름</th>
       <td width=85%>
        <input type=text name=name size=20 required
-        class="input-sm"  value=${vo.name }
+        class="input-sm"  value="${vo.name }"
        >
        <input type=hidden name=no value="${vo.no }"
        >
@@ -25,7 +25,7 @@
       <th width=15%>제목</th>
       <td width=85%>
        <input type=text name=subject size=50 required
-        class="input-sm" value=${vo.subject }
+        class="input-sm" value="${vo.subject }"
        >
       </td>
      </tr>
