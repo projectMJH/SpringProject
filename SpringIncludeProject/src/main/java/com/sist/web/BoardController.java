@@ -76,8 +76,7 @@ public class BoardController {
    @GetMapping("board/update.do")
    public String board_update(int no,Model model)
    {
-//	   BoardVO vo=dao.boardUpdateData(no);
-	   BoardVO vo=service.boardDetailData(no);
+	   BoardVO vo=dao.boardUpdateData(no);
 	   model.addAttribute("vo", vo);
 	   model.addAttribute("main_jsp", "../replyboard/update.jsp");
 	   return "main/main";

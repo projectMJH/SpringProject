@@ -23,20 +23,25 @@ public class RecipeController {
 	public String recipe_detail(int no,Model model)
 	{
 		RecipeDetailVO vo=service.recipeDetailData(no);
-		String data=vo.getFoodmake();
-		String[] makes=data.split("\n");
-		List<String> mList=new ArrayList<String>();
-		List<String> iList=new ArrayList<String>();
-		
-		for(String line:makes)
-		{
-			StringTokenizer st=new StringTokenizer(line,"^");
-			mList.add(st.nextToken());
-			iList.add(st.nextToken());
-		}
 		model.addAttribute("vo",vo);
-		model.addAttribute("mList",mList);
-		model.addAttribute("iList",iList);
+		
+		String data=vo.getFoodmake();
+		if(data!=null && data.length()>0 )
+		{
+			String[] makes=data.split("\n");
+			List<String> mList=new ArrayList<String>();
+			List<String> iList=new ArrayList<String>();
+			
+			for(String line:makes)
+			{
+				StringTokenizer st=new StringTokenizer(line,"^");
+				mList.add(st.nextToken());
+				iList.add(st.nextToken());
+			}
+			model.addAttribute("mList",mList);
+			model.addAttribute("iList",iList);
+			
+		}
 
 		model.addAttribute("main_jsp","../recipe/detail.jsp");
 		// kList

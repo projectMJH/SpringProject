@@ -34,8 +34,11 @@ public class MusicTask {
 
             // 3. JSON 배열 생성
             JSONArray jArray = new JSONArray();
-            for (Element row : rows) {
-                JSONObject jsonObject = new JSONObject();
+//            for (Element row : rows) {
+            Element row=null;
+            for(int i=0;i<10;i++) {
+            	row=rows.get(i);
+            	JSONObject jsonObject = new JSONObject();
                 MusicVO vo=new MusicVO();
                 // 🔹 Title (곡 제목)
                 String title = row.select("td.info a.title").text();
