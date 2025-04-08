@@ -28,7 +28,7 @@
 	 --> 
 	 <bean id="transactionManager"
 	 	class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-	 	p:dataSource="ds"
+	 	p:dataSource-ref="ds"
 	 />
 	<!-- 
 			DQL(SELECT) = commit (트랜잭션 대상이 아니다)

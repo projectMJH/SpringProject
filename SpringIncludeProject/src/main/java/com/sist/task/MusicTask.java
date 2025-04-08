@@ -1,8 +1,11 @@
 package com.sist.task;
 
+/*
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+*/
+import org.json.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ public class MusicTask {
 	@Autowired
 	private MovieDAO mDao;
 	// https://www.kobis.or.kr/kobis/business/main/searchMainDailyBoxOffice.do
-	//@Scheduled(fixedRate = 60*60*1000)
+	@Scheduled(fixedRate = 60*60*1000)
 	public void movieSchedule()
 	{
 		try
@@ -28,8 +31,9 @@ public class MusicTask {
 			mDao.movieDelete();
 			Document doc=Jsoup.connect("https://www.kobis.or.kr/kobis/business/main/searchMainDailyBoxOffice.do").get();
 			String data=doc.toString();
-			data=data.substring(data.indexOf("["),data.indexOf("]")+1);
-			//System.out.println(data);
+			//data=data.substring(data.indexOf("["),data.indexOf("]")+1);
+			data=data.substring(data.indexOf("[{"),data.indexOf("}]")+2);
+			System.out.println(data);
 			//[{},{},{},{},{},{},{},{},{},{}] => Array / {} => Object
 			/*
 			 * {"startYearDate":"2025.04.01",
@@ -56,11 +60,16 @@ public class MusicTask {
 			 *  "genre":"드라마",
 			 *  "watchGradeNm":"12세이상관람가","openDt":"20250326","salesAmt":526480860,"audiCnt":57735,"totalSalesAmt":7653913740,"totalAudiCnt":826975,"scrCnt":1548,"showCnt":6303,"rank":1,"rankInten":0,"rankOldAndNew":"OLD","rownum":1}
 			 */
-			JSONParser jp=new JSONParser();
-			JSONArray root=(JSONArray)jp.parse(data);
-			for(int i=0;i<root.size();i++)
+
+//			JSONParser jp=new JSONParser();
+//			JSONArray root=(JSONArray)jp.parse(data);
+			
+			JSONArray root=new JSONArray(data);
+
+			for(int i=0;i<root.length();i++)
 			{
 				JSONObject obj=(JSONObject)root.get(i);
+				System.out.println(obj.toString());
 				MovieVO vo=new MovieVO();
 				vo.setMno(i+1);
 				vo.setTitle((String)obj.get("movieNm"));
