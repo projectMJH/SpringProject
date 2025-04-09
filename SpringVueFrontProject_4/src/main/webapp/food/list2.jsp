@@ -29,59 +29,33 @@ p{
 <body>
 	<div class="container">
 		<div class="row">
-		  <div class="col-md-3" v-for="vo in food_list">
-		    <div class="thumbnail">
-		      <a href="#">
-		        <img :src="'https://www.menupan.com'+vo.poster" style="width:230px;height:120px">
-		        <div class="caption">
-		          <p>{{vo.name}}</p>
-		        </div>
-		      </a>
-		    </div>
+		  <div class="text-center">
+		  	<input type="button" value="한식" class="btn-lg btn-success">
+		  	<input type="button" value="중식" class="btn-lg btn-info">
+		  	<input type="button" value="일식" class="btn-lg btn-warning">
+		  	<input type="button" value="양식" class="btn-lg btn-danger">
+		  	<input type="button" value="기타" class="btn-lg btn-danger">
 		  </div>
-
 		</div>
-		<div style="height: 10px;"></div>
+		<div style="height: 10px"></div>
 		<div class="row">
-			<div class="text-center">
-				<input type=button class="btn-sm btn-danger" value="이전" @click="prev()">
-				{{curpage}} page / {{totalpage}} pages
-				<input type=button class="btn-sm btn-danger" value="다음" v-on:click="next()">
-			</div>
+			<h3 class="text-center">{{title}}</h3>
+		</div>
+		<div style="height: 10px"></div>
+		<div class="row">
+			
 		</div>
 	</div>
 	<script>
 	let app=Vue.createApp({
 		data(){
 			return {
-				food_list:[],
-				curpage:1,
-				totalpage:0
 			}
 		},
 		mounted(){
-			this.dataRecv()
 		},
 		methods:{
-			prev:function(){
-				this.curpage=this.curpage>1?this.curpage-1:this.curpage
-				this.dataRecv()
-			},
-			next(){
-				this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage
-				this.dataRecv()
-			},
 			dataRecv(){
-				axios.get('../food/list_vue.do',{
-					params:{
-						page:this.curpage
-					}
-				}).then(response=>{
-					console.log(response.data)
-					this.food_list=response.data.list
-					this.curpage=response.data.curpage
-					this.totalpage=response.data.totalpage
-				})
 				
 			}
 		}
