@@ -19,6 +19,11 @@ public class FoodController {
 	@GetMapping("food/find.do")
 	public String food_find()
 	{
-		return "food/find";
+		return "food/find2";
+	}
+	@GetMapping("food/detail.do")
+	public String food_detail()
+	{
+		return "food/detail";
 	}
 }

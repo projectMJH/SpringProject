@@ -47,15 +47,15 @@ p{
 	</div>
 	<div style="height: 10px;"></div>
 	<div class="row">
-		<div class="text-center">
-			<input type=button class="btn-sm btn-danger" value="이전"
-				@click="prev()"
-			>
-			{{curpage}} page / {{totalpage}} pages
-			<input type=button class="btn-sm btn-danger" value="다음"
-				v-on:click="next()"
-			>
-		</div>
+ 		<div class="row">
+ 			<div class="text-center">
+ 				<ul class="pagination">
+ 					<li v-if="startPage>1"><a class="page-btn" @click="prev()">&lt;</a></li>
+ 					<li v-for="i in range(startPage,endPage)" :class="curpage===i?'active':''"><a class="page-btn" @click="pageChange(i)">{{i}}</a></li>
+ 					<li v-if="endPage<totalpage"><a class="page-btn" v-on:click="next()">&gt;</a></li>
+ 				</ul>
+ 			</div>
+ 		</div>
 	</div>
 </div>
 <script>
@@ -65,6 +65,8 @@ let findApp=Vue.createApp({
 			food_list:[],
 			curpage:1,
 			totalpage:0,
+			startPage:0,
+			endPage:0,
 			fd:'마'
 		}
 	},
@@ -81,12 +83,25 @@ let findApp=Vue.createApp({
 			}
 			this.dataRecv()
 		},
-		prev(){
-			this.curpage=this.curpage>1?this.curpage-1:this.curpage
+		range(start,end){
+ 			arr=[]
+ 			len=end-start
+ 			for(i=0;i<=len;i++)
+ 			{
+ 				arr[i]=start+i
+ 			}
+ 			return arr
+ 		},
+ 		prev:function(){
+			this.curpage=this.startPage-1
 			this.dataRecv()
 		},
-		next:function(){
-			this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage
+		next(){
+			this.curpage=this.endPage+1
+			this.dataRecv()
+		},
+		pageChange(page){
+			this.curpage=page
 			this.dataRecv()
 		},
 		dataRecv(){
@@ -99,6 +114,8 @@ let findApp=Vue.createApp({
 				this.food_list=res.data.list
 				this.curpage=res.data.curpage
 				this.totalpage=res.data.totalpage
+				this.startPage=res.data.startPage
+				this.endPage=res.data.endPage
 				this.fd=res.data.fd
 			}).catch(error=>{
 				console.log(error.response)

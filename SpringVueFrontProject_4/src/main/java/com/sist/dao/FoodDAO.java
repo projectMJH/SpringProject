@@ -31,4 +31,19 @@ public class FoodDAO {
 	{
 		return mapper.foodFindTotalPage(fd);
 	}
+	
+	public List<FoodVO> foodGubunListData(Map map)
+	{
+		return mapper.foodGubunListData(map);
+	}
+	
+	public int foodGubunTotalPage(Map map)
+	{
+		return mapper.foodGubunTotalPage(map);
+	}
+	
+	public FoodVO foodDetailData(int fno)
+	{
+		return mapper.foodDetailData(fno);
+	}
 }
