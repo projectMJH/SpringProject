@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-    <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb-area" style="background-image: url(../img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -27,10 +28,10 @@
             </div>
         </div>
     </div>
-    <section class="archive-area section_padding_80">
+    <section class="archive-area section_padding_80" id="app">
         <div class="container">
             <div class="row justify-content-center">  
-              <form action="../member/login.do" method="post" id="login">
+              <form action="../member/login.do" method="post" id="frm">
               	<table class="table text-center">
               		<tr>
               			<th width=20% class="text-center">ID</th>
@@ -62,7 +63,9 @@
               		</tr>
               		<tr>
               			<td colspan="2" class="text-center">
-              				<input type=button value="로그인" class="btn-sm btn-primary">
+              				<input type=button value="로그인" class="btn-sm btn-primary"
+              					@click="login()"
+              				>
               				<input type=button value="취소" class="btn-sm btn-primary"
               					onclick="javascript:history.back()"
               				>
@@ -72,6 +75,31 @@
               </form>
             </div>
         </div>
-    </section>    
+    </section>
+    <script>
+    let app=Vue.createApp({
+    	data(){
+    		return {
+    			userid:'',
+    			userpwd:''
+    		}
+    	},
+    	methods:{
+    		login(){
+    			if(this.userid==='')
+    			{
+    				this.$refs.userid.focus()
+    				return
+    			}	
+    			if(this.userpwd==='')
+    			{
+    				this.$refs.userpwd.focus()
+    				return
+    			}	
+    			$('#frm').submit()
+    		}
+    	}
+    }).mount("#app")
+    </script>  
 </body>
 </html>

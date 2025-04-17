@@ -47,7 +47,7 @@
              session.invalidate()
              return "redirect:../main/main.do"
         -->
-       <!--  자동 로그인 : 유지 시간 = 24시간(24*60*60=86400) -->
+       <!--  자동 로그인 : 유지 시간 = 24시간 -->
        <remember-me data-source-ref="ds" token-validity-seconds="86400"/>
        <logout
           logout-url="/member/logout.do"
@@ -61,7 +61,7 @@
      <beans:bean id="loginSuccessHandler"
        class="com.sist.security.LoginSuccessHandler"
      >
-       <beans:property name="defaultUrl" value="/main/main.do"/>
+       <beans:property name="defaultUrl" value="../main/main.do"/>
      </beans:bean>
      <beans:bean id="loginFailureHandler"
        class="com.sist.security.LoginFailureHandler"

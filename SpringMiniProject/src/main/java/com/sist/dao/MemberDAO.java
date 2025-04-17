@@ -16,4 +16,10 @@ public class MemberDAO {
 		mapper.memberInsert(vo);
 		mapper.memberAuthorityInsert(vo.getUserid());
 	}
+	
+	// => login_ok
+	public MemberVO memberSessionData(String userid)
+	{
+		return mapper.memberSessionData(userid);
+	}
 }

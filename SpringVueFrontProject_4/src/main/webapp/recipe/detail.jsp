@@ -41,6 +41,11 @@ p{
 					</td>
 				</tr>
 				<tr>
+					<td colspan="3" class="text-center">
+					<span style="color:gray">{{vo.content}}</span>
+					</td>
+				</tr>
+				<tr>
 					<td class="text-center"><img src="a1.png"></td>
 					<td class="text-center"><img src="a2.png"></td>
 					<td class="text-center"><img src="a3.png"></td>
