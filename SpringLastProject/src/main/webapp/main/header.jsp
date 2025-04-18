@@ -89,29 +89,51 @@
                                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">부산에 가면</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">Home</a>
-                                        <a class="dropdown-item" href="archive.html">Archive</a>
-                                        <a class="dropdown-item" href="single.html">Single Blog</a>
-                                        <a class="dropdown-item" href="static.html">Static Page</a>
-                                        <a class="dropdown-item" href="contact.html">Contact</a>
+                                        <a class="dropdown-item" href="index.html">명소</a>
+                                        <a class="dropdown-item" href="single.html">음식</a>
+                                        <a class="dropdown-item" href="static.html">숙박</a>
+                                        <a class="dropdown-item" href="contact.html">쇼핑</a>
+                                        <a class="dropdown-item" href="archive.html">축제</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">추천여행</a>
+                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        <a class="dropdown-item" href="index.html">일정 여행</a>
+                                        <a class="dropdown-item" href="archive.html">테마 여행</a>
+                                        <a class="dropdown-item" href="single.html">미식 투어</a>
+                                        <a class="dropdown-item" href="static.html">체험 해양</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">맛집</a>
+                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        <a class="dropdown-item" href="index.html">맛집 목록</a>
+                                        <a class="dropdown-item" href="archive.html">맛집 검색</a>
+                                        <a class="dropdown-item" href="single.html">맛집 추천</a>
+                                        <a class="dropdown-item" href="static.html">맛집 예약</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">레시피</a>
+                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        <a class="dropdown-item" href="index.html">레시피 목록</a>
+                                        <a class="dropdown-item" href="archive.html">셰프</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Features</a>
+                                    <a class="nav-link" href="#">부산 특산물</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Categories</a>
+                                    <a class="nav-link" href="#">커뮤니티</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="archive.html">Archive</a>
+                                    <a class="nav-link" href="archive.html">마이페이지</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../main/delete.do">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="../main/delete.do">관리자페이지</a>
                                 </li>
                             </ul>
                         </div>

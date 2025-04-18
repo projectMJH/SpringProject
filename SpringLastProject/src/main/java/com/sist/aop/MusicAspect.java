@@ -35,8 +35,10 @@ public class MusicAspect {
 	          // PageContext
 	   MusicVO vo=dao.musicTop();
 	   System.out.println("title:"+vo.getTitle());
-	   String key=youtubeGetKey(vo.getTitle());
-	   request.setAttribute("key", key);
+	   
+	   // youtube 일시 정지
+	   //String key=youtubeGetKey(vo.getTitle());
+	   //request.setAttribute("key", key);
 	   
    }
    // https://www.youtube.com/results?search_query=%09+%EB%AA%A8%EB%A5%B4%EC%8B%9C%EB%82%98%EC%9A%94+(Prod.+by+%EB%A1%9C%EC%BD%94%EB%B2%A0%EB%A6%AC)
