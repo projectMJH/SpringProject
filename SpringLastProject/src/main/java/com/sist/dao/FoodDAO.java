@@ -21,6 +21,11 @@ public class FoodDAO {
 	{
 		return mapper.busanFoodTotalPage();
 	}
+
+	public FoodVO busanFoodDetailData(int fno)
+	{
+		return mapper.foodDetailData(fno);
+	}
 /*	
 	public List<FoodVO> foodFindListData(Map map)
 	{
@@ -42,9 +47,5 @@ public class FoodDAO {
 		return mapper.foodGubunTotalPage(map);
 	}
 	
-	public FoodVO foodDetailData(int fno)
-	{
-		return mapper.foodDetailData(fno);
-	}
 */	
 }

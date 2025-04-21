@@ -25,4 +25,10 @@ public class FoodServiceImpl implements FoodService{
 		return fDao.busanFoodTotalPage();
 	}
 
+	@Override
+	public FoodVO busanFoodDetailData(int fno) {
+		// TODO Auto-generated method stub
+		return fDao.busanFoodDetailData(fno);
+	}
+
 }

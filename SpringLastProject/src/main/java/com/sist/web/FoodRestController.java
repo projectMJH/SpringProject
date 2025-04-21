@@ -13,13 +13,28 @@ public class FoodRestController {
 	private FoodService service;
 	
 	@GetMapping("list_vue.do")
-	public List<FoodVO> busanFoodListData(int page)
+	public Map food_list(int page)
 	{
 		int rowSize=12;
 		int start=(rowSize*page)-(rowSize-1);
 		int end=(rowSize*page);
 		List<FoodVO> list=service.busanFoodListData(start, end);
-		return list;
+		int totalpage=service.busanFoodTotalPage();
+		
+		Map map=new HashMap();
+		final int BLOCK=10;
+		int startPage=((page-1)/BLOCK*BLOCK)+1;
+		int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage)
+			endPage=totalpage;
+		map=new HashMap();
+		map.put("list", list);
+		map.put("curpage", page);
+		map.put("totalpage", totalpage);
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
+		
+		return map;
 	}
-
 }
