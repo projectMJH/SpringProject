@@ -29,6 +29,13 @@
         </repository>
 	</repositories>
 	<dependencies>
+		<!-- simple json 
+			https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
 	     <!-- 
 	       mvnrepository.com = 라이브러리 
 	       없는 경우에는 <systemPath>를 이용해서 등록 

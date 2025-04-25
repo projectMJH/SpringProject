@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import com.sist.vo.*;
 import com.sist.service.*;
 
@@ -41,14 +44,17 @@ public class FoodController {
 	}
 	
 	@GetMapping("detail.do")
-	public String food_detail(int fno,Model model)
+	public String food_detail(int fno,Model model,HttpSession session)
 	{
+	    String id=(String)session.getAttribute("userid");
+
 		FoodVO vo=service.busanFoodDetailData(fno);
 		List<String> list=new ArrayList<String>();
 		String[] images=vo.getImages().split(",");
 		list=Arrays.asList(images);
 		model.addAttribute("vo",vo);
 		model.addAttribute("list",list);
+		model.addAttribute("sessionId", id);
 		model.addAttribute("main_jsp","../food/detail.jsp");
 		return "main/main";
 	}

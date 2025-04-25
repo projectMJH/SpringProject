@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import com.sist.vo.*;
 import com.sist.service.*;
 /*
@@ -50,14 +53,16 @@ public class BusanInfoController {
 	  // 주고 받기 
 	  // => useState(React)
 	  @GetMapping("busan/detail.do")
-	  public String busan_detail(int no,Model model)
+	  public String busan_detail(int no,Model model,HttpSession session)
 	  {
+		  String id=(String)session.getAttribute("userid");
 		  BusanInfoVO vo=service.busanInfoDetailData(no);
 		  String addr1=vo.getAddress();
 		  addr1=addr1.substring(addr1.indexOf(" "));
 		  String addr2=addr1.trim();
 		  addr2=addr2.substring(0,addr2.indexOf(" "));
 		  model.addAttribute("vo", vo);
+		  model.addAttribute("sessionId", id);
 		  model.addAttribute("addr", addr2);
 		  model.addAttribute("main_jsp", "../busan/info_detail.jsp");
 		  return "main/main";
