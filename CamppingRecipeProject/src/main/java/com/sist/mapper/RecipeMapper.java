@@ -14,6 +14,9 @@ public interface RecipeMapper {
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<RecipeVO> recipeListData(Map map);
 	
-	@Select("SELECT CEIL(COUNT(*)/#{pageSize}) FROM recipeDetail")
-	public int recipeTotalPage(@Param("pageSize") int pageSize);
+	@Select("SELECT CEIL(COUNT(*)/#{rowSize}) FROM recipeDetail")
+	public int recipeTotalPage(@Param("rowSize") int rowSize);
+	
+	public List<RecipeVO> chefsRecipeListData(Map map);
+	public int chefsRecipeTotalPage(Map map);
 }

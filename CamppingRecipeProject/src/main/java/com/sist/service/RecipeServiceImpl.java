@@ -26,4 +26,16 @@ public class RecipeServiceImpl implements RecipeService {
 		return cDao.chefTotalPage(rowSize);
 	}
 
+	@Override
+	public List<RecipeVO> chefsRecipeListData(Map map) {
+		// TODO Auto-generated method stub
+		return rDao.chefsRecipeListData(map);
+	}
+
+	@Override
+	public int chefsRecipeTotalPage(Map map) {
+		// TODO Auto-generated method stub
+		return rDao.chefsRecipeTotalPage(map);
+	}
+
 }

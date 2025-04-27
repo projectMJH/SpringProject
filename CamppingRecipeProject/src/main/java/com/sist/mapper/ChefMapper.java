@@ -8,10 +8,11 @@ import com.sist.vo.*;
 
 public interface ChefMapper {
 	
-	@Select("SELECT no,chef,poster,rcount,scount,wcount,fcount,num"
+	@Select("SELECT no,chef,poster,rcount,scount,wcount,fcount,num "
 			+ "FROM (SELECT no,chef,poster,rcount,scount,wcount,fcount,rownum as num  "
-			+ "FROM (SELECT /* INDEX_ASC(chef chef_no_pk)*/no,chef,poster,rcount,scount,wcount,fcount "
-			+ "FROM chef)) "
+			+ "FROM (SELECT no,chef,poster,rcount,scount,wcount,fcount "
+			+ "FROM chef "
+			+ "ORDER BY TO_NUMBER(REPLACE(${fd},',','')) DESC)) "
 			+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<ChefVO> chefListData(Map map);
 	

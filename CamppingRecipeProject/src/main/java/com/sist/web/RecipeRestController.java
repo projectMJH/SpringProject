@@ -13,28 +13,45 @@ public class RecipeRestController {
 	private RecipeService service;
 	
 	@GetMapping("chef/list_vue.do")
-	public Map chef_list_vue(int page)
+	public Map chef_list_vue(int page, String fd)
 	{
 		final int ROWSIZE=RecipeConfig.CHEF_SIZE;
-		int start=(page*ROWSIZE)-(ROWSIZE-1);
-		int end=(page*ROWSIZE);
-		Map map=new HashMap();
-		map.put("start", start);
-		map.put("end", end);
+		final int BLOCK=RecipeConfig.BLOCK_SIZE;
+		
+		Map map=ListUtil.setListRange(page, ROWSIZE);
+		map.put("fd", fd);
 		List<ChefVO> list=service.chefListData(map);
 		int totalpage=service.chefTotalPage(ROWSIZE);
-		map=new HashMap();
 		
-		final int BLOCK=RecipeConfig.BLOCK_SIZE;
-		int startPage=(page-1)/BLOCK*BLOCK+1;
-		int endPage=(page-1)/BLOCK*BLOCK+BLOCK;
-		if (endPage>totalpage)
-			endPage=totalpage;
+		map=new HashMap();
 		map.put("list", list);
 		map.put("curpage", page);
 		map.put("totalpage", totalpage);
-		map.put("startPage", startPage);
-		map.put("endPage", endPage);
+		map.put("rowSize", ROWSIZE);
+		ListUtil.setPageRange(map, BLOCK);
+		
+		return map;
+	}
+	
+	@GetMapping("chef/chef_recipe_vue.do")
+	public Map chef_recipe_vue(int page,String chef)
+	{
+		final int ROWSIZE=RecipeConfig.RECIPE_SIZE;
+		final int BLOCK=RecipeConfig.BLOCK_SIZE;
+
+		Map map=ListUtil.setListRange(page, ROWSIZE);
+		map.put("chef", chef);
+		map.put("rowSize", ROWSIZE);
+		List<RecipeVO> list=service.chefsRecipeListData(map);
+		int totalpage=service.chefsRecipeTotalPage(map);
+		
+		map=new HashMap();
+		map.put("list", list);
+		map.put("curpage", page);
+		map.put("totalpage", totalpage);
+		map.put("rowSize", ROWSIZE);
+		ListUtil.setPageRange(map, BLOCK);
+		
 		return map;
 	}
 }
