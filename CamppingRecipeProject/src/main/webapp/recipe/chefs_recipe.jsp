@@ -4,10 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>레시피 목록</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="../css/chef_list.css" rel="stylesheet">
+<style>
+  .category-menu { background: #f8f9fa; padding: 15px; }
+  .category-menu h6 { margin-top: 10px; }
+  .recipe-card img { width: 100%; height: 200px; object-fit: cover; }
+  .recipe-card { margin-bottom: 30px; }
+  .recipe-meta { font-size: 0.9rem; color: #666; }
+</style>
 </head>
 <body>
     <!-- ****** Archive Area Start ****** -->
