@@ -1,0 +1,28 @@
+# Eclipse 관련 파일
+*.classpath
+*.project
+.settings/
+
+# Maven 관련 파일 (Maven 사용 시)
+target/
+
+# Gradle 관련 파일 (Gradle 사용 시)
+build/
+
+# IntelliJ IDEA 관련 파일
+.idea/
+*.iml
+
+# OS 관련 파일
+.DS_Store
+Thumbs.db
+
+# Java 빌드 관련 파일
+*.log
+*.jar
+*.war
+*.ear
+
+# Spring Boot의 경우, 실행 파일은 보통 무시합니다.
+*.jar
+*.war
