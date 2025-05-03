@@ -40,7 +40,7 @@
 				    
 				    <!-- 셰프 이미지 -->
 				    <div class="list_mem">
-				      <a :href="'../chef/chefs_recipe.do?chef=' + vo.chef" class="mem_pic">
+				      <a :href="'../recipe/chefs_recipe.do?chef=' + vo.chef" class="mem_pic">
 				        <img :src="vo.poster" alt="셰프 이미지">
 				      </a>
 				    </div>
@@ -48,7 +48,7 @@
 				    <!-- 셰프 정보 -->
 				    <div class="list_cont">
 				      <div class="chef_name_box">
-				        <a :href="'../chef/chefs_recipe.do?chef=' + vo.chef" class="chef_name">{{ vo.chef }}</a>
+				        <a :href="'../recipe/chefs_recipe.do?chef=' + vo.chef" class="chef_name">{{ vo.chef }}</a>
 				        <button type="button" class="btn btn-default btn-sm follow_btn">
 				          <span class="glyphicon glyphicon-plus"></span> 소식받기
 				        </button>

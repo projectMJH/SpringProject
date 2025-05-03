@@ -14,6 +14,13 @@
   .recipe-card img { width: 100%; height: 200px; object-fit: cover; }
   .recipe-card { margin-bottom: 30px; }
   .recipe-meta { font-size: 0.9rem; color: #666; }
+  .h-100 { height: 100%!important }
+  .card-body{-ms-flex:1 1 auto;flex:1 1 auto;padding:1.25rem}
+  .card-img-top{ width:100%; border-top-left-radius: calc(.25rem - 1px); border-top-right-radius: calc(.25rem - 1px) }
+  .card-title{margin-bottom:.75rem}
+  .card-text:last-child{margin-bottom:0}
+  .text-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .text-muted{color:#868e96!important}
 </style>
 </head>
 <body>

@@ -94,7 +94,7 @@
                                         <a class="dropdown-item" href="../recipe/recipe_group.do">레시피 분류</a>
                                         <a class="dropdown-item" href="../recipe/recipe_detail.do">레시피 상세</a>
                                         <a class="dropdown-item" href="../recipe/chef_list.do">셰프 목록</a>
-                                        <a class="dropdown-item" href="../recipe/chef_recipe.do">셰프's 레시피</a>
+                                        <a class="dropdown-item" href="../recipe/chefs_recipe.do">셰프's 레시피</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

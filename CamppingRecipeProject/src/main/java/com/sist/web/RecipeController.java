@@ -29,7 +29,7 @@ public class RecipeController {
 		return "main/main";
 	}
 	
-	@GetMapping("chef/chefs_recipe.do")
+	@GetMapping("recipe/chefs_recipe.do")
 	public String chefs_recipe(String chef,Model model)
 	{
 		model.addAttribute("page","1");
