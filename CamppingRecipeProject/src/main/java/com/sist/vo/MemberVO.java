@@ -22,7 +22,7 @@ LASTLOGIN           DATE
 @Data
 public class MemberVO {
 	private int enable; // 1(활성), 0(휴먼)
-	private String userid,username,userpwd,sex,birthday,email,
+	private String id,name,pwd,sex,birthday,email,
 			post,addr1,addr2,phone,content;
 	private Date regdate,modifydate,lastlogin;
 	

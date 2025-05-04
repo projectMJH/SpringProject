@@ -14,7 +14,7 @@ public class MemberDAO {
 	public void memberInsert(MemberVO vo)
 	{
 		mapper.memberInsert(vo);
-		mapper.memberAuthorityInsert(vo.getUserid());
+		mapper.memberAuthorityInsert(vo.getId());
 	}
 	
 	// => login_ok

@@ -27,8 +27,8 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		HttpSession session=request.getSession();
 		MemberVO vo=dao.memberSessionData(authentication.getName());
 		//authentication 정보 => username(id) , password , enable
-		session.setAttribute("userid", vo.getUserid());
-		session.setAttribute("username", vo.getUsername());
+		session.setAttribute("userid", vo.getId());
+		session.setAttribute("username", vo.getName());
 		session.setAttribute("sex", vo.getSex());
 		response.sendRedirect("../main/main.do");
 	}

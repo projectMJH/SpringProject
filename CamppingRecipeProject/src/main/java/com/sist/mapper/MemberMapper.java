@@ -6,19 +6,19 @@ import org.apache.ibatis.annotations.Select;
 
 import com.sist.vo.*;
 public interface MemberMapper {
-	@Insert("INSERT INTO projectMember(userid,username,userpwd,"
+	@Insert("INSERT INTO member(id,name,pwd,"
 			+ "sex,birthday,email,post,addr1,addr2,phone,content) "
-			+ "VALUES(#{userid},#{username},#{userpwd},"
+			+ "VALUES(#{id},#{username},#{userpwd},"
 			+ "#{sex},#{birthday},#{email},#{post},#{addr1},#{addr2},#{phone},#{content})")
 	public void memberInsert(MemberVO vo);
 	
 	@Insert("INSERT INTO authority VALUES("
-			+ "#{userid},'ROLE_USER')")
+			+ "#{id},'ROLE_USER')")
 	public void memberAuthorityInsert(String id);
 	
-	@Select("SELECT userid,username,sex,email,phone,post,addr1,addr2 "
-			+ "FROM projectMember "
-			+ "WHERE userid=#{userid}")
-	public MemberVO memberSessionData(String userid);
+	@Select("SELECT id,name,sex,email,phone,post,addr1,addr2 "
+			+ "FROM member "
+			+ "WHERE id=#{id}")
+	public MemberVO memberSessionData(String id);
 	
 }
